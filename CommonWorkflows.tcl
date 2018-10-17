@@ -6,15 +6,26 @@
 # build_c_sim: builds and runs C simulation
 #
 
+# Defines the mode that will be run in the script
 set mode init
+# Sets the project name we will work on
 set project_name First_Test
+# Sets the solution name we will work on
 set solution_name First_Test
+# Sets the HLS files we want to synthetise 
 set hls_files [list HLS_Test.cpp]
+# Sets the test bench files
 set tb_files [list TB_Test.cpp]
+# Sets the device we want to synthetise for
 set part {xc7k160tfbg484-1}
+# Sets the clock frequency (if MHz is appended to the number), or period (if only the number is used)
+# 10 = 10 ns
+# 40MHz = 25 ns -> set clock 40MHz
 set clock 10
+# Sets the top-level function name that is going to be starting point for synthetisation
 set top_function hls_main
 
+# Collection of utility procedures
 source CommonProcedures.tcl
 
 switch $mode {
