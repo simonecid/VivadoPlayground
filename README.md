@@ -25,11 +25,11 @@ In HLS you have two type of files: the HLS C files, and the test bench files.
 These are the actual files that will be synthesised to FPGA FW.
 You add those files to an opened project by running ```add_files <file1> <file2> ...```. Please note that including .h files is discouraged.
 HLS requires an explicit declaration of what your top-level function is going to be, you provide it by running ```set_top <function_name>```.
-In this repository ```HLS_Test.cpp``` is our test HLS file.
+In this repository ```HLS_Test.cpp``` is our test HLS file, and ```hls_main()``` is our top-level function.
 
 ### Test bench files
 These are the files used to test your HLS code by first simulating it. 
 You can have 2 different types of simulation: C simulation, and HDL simulation.
 In the C simulation you basically compile your code under GCC and you run your test on it.
 HDL simulation takes the synthesised code and puts in a emulator that runs it.
-At the moment, I have run a C simulation.
+At the moment, I have run a C simulation of the code.
