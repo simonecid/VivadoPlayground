@@ -21,8 +21,27 @@ proc initialise_project {projectName hls_files tb_files top_func} {
   puts "Run 'initialise_solution solutionName part clock' to create a solution."
 }
 
-proc build_c_simulation {projectName solutionName} {
+proc run_c_simulation {projectName solutionName} {
   open_project $projectName
   open_solution $solutionName
   csim_design
+}
+
+proc setup_environment {projectName solutionName} {
+  open_project $projectName
+  open_solution $solutionName
+  puts "Opened solution $solutionName in project $projectName."
+}
+
+proc synthetise {projectName solutionName} { 
+  open_project $projectName
+  open_solution $solutionName
+  csynth_design
+}
+
+proc run_RTL_simulation {projectName solutionName} { 
+  open_project $projectName
+  open_solution $solutionName
+  csynth_design
+  cosim_design
 }
