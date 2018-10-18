@@ -5,6 +5,7 @@
 # solution_init: creates solution with FPGA conf and clock
 # run_c_sim: builds and runs C simulation
 # run_rtl_sim: builds and runs RTL simulation
+# synth: synthetise the code
 # setup: opens a project and a solution
 #
 
