@@ -12,7 +12,11 @@ These modes have been implemented:
  * ```init```: creates project, adds hls and test bench files to it, and creates a solution with FPGA conf and clock
  * ```project_init```: creates project, adds hls and test bench files to it
  * ```solution_init```: creates solution with FPGA conf and clock
- * ```build_c_sim```: builds and runs C simulation
+ * ```run_c_sim```: builds and runs C simulation
+ * ```run_rtl_sim```: builds and runs RTL simulation
+ * ```synth```: synthesises the HLS code
+ * ```setup```: opens a project and solution to start the interactive session
+
  
 ## Some basic concepts and relative examples in the repository
 
@@ -37,14 +41,26 @@ HLS requires an explicit declaration of what your top-level function is going to
 In this repository ```HLS_Test.cpp``` is our test HLS file, and ```hls_main()``` is our top-level function.
 
 #### Test bench files
-These are the files used to test your HLS code by compiling the C code and running it. 
+These are the files used to test your HLS code in simulations. 
 The file ```TB_Test.cpp``` is the file that is compiled into the C++ simulation. It contains the ```main()``` and links to the HLS code in ```HLT_Test.cpp``` through the header ```HLT_Test.h```.
 Test bench files are added to the project using ```add_files -tb <file1> <file2> ...```.
 
 ## Code simulation
-You can have 2 different types of simulation: C simulation, and HDL simulation.
-In the C simulation you basically compile your code under GCC and you run your test on it.
-HDL simulation takes the synthesised code and puts in a emulator that runs it.
+You can have 2 different types of simulation: C simulation, and RTL simulation.
+
 ### Running C simulation
-To run the test bench, you run ```csim_design```. The command compiles in gcc/g++ the code and runs it. 
+In the C simulation you basically compile your entire code (test bench + HLS code) under GCC and you run your test on it.
+To run the test bench, you run ```csim_design```. The command compiles in gcc/g++ the code and runs it. The ```main``` must be designed in order to return 0 if the test has succeeded.  Any other value is interpreted has not succeeded.
 By running ```csim_design -setup```, it is possible to compile without running.
+
+### Running RTL simulation
+
+RTL simulation takes the synthesised code and puts in a emulator that runs it.
+**To run the RTL simulation, you must first synthesise the code by running ```csynth_design```.** This command generates the RTL.
+Second step is running ```cosim_design```, this command:
+ 1) Runs the C simulation (i.e. runs ```csim_design```)
+ 2) If the test is succeeded (i.e. the main returns 0), the C simulation is run again until the top-level function is called. 
+ 3) At that point the arguments of the top-level function are converted to RTL inputs and the RTL simulation of the top-level function is run.
+ 4) The output of the RTL simulation is taken, reconverted to C data and the execution of the C code is resumed.
+ 5) If the main return 0, the test is considered passed, otherwise failed.
+ 
