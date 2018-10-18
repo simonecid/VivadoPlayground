@@ -3,11 +3,13 @@
 # init: creates project, adds hls and test bench files to it, and create solution with FPGA conf and clock
 # project_init: creates project, adds hls and test bench files to it
 # solution_init: creates solution with FPGA conf and clock
-# build_c_sim: builds and runs C simulation
+# run_c_sim: builds and runs C simulation
+# run_rtl_sim: builds and runs RTL simulation
+# setup: opens a project and a solution
 #
 
 # Defines the mode that will be run in the script
-set mode init
+set mode setup
 # Sets the project name we will work on
 set project_name First_Test
 # Sets the solution name we will work on
@@ -39,8 +41,17 @@ switch $mode {
     solution_init {
       initialise_solution $project_name $solution_name $part $clock
     }
-    build_c_sim {
-      build_c_simulation $project_name $solution_name
+    run_c_sim {
+      run_c_simulation $project_name $solution_name
+    }
+    run_rtl_sim {
+      run_rtl_simulation $project_name $solution_name
+    }
+    synth {
+      synthetise $project_name $solution_name
+    }
+    setup {
+      setup_environment $project_name $solution_name
     }
     default {
         puts "Mode $mode is invalid."
