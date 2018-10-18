@@ -64,3 +64,10 @@ Second step is running ```cosim_design```, this command:
  4) The output of the RTL simulation is taken, reconverted to C data and the execution of the C code is resumed.
  5) If the main return 0, the test is considered passed, otherwise failed.
  
+
+## Other stuff
+
+### Have specific code blocks running only in C sim
+  The compiler defines ```__SYNTHESIS___``` when synthesising stuff.
+  Therefore with a ```#ifdef __SYNTHESIS__``` code blocks running only in the C simulation can be added. 
+  This can be used to add debug printouts (```std::cout``` would not work on synthesis) and other C-only features.
