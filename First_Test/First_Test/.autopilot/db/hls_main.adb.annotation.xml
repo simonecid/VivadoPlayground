@@ -1,0 +1,4 @@
+<annotationInfo>
+<item  id="12" filename="HLS_Test.cpp" linenumber="5" name="tmp" contextFuncName="hls_main" moduleName="hls_main" rtlName="hls_main_mac_mulabkb_U1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/users/sb17498/VivadoPlayground"><\/item>
+<item  id="13" filename="HLS_Test.cpp" linenumber="5" name="tmp_1" contextFuncName="hls_main" moduleName="hls_main" rtlName="hls_main_mac_mulabkb_U1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="/users/sb17498/VivadoPlayground"><\/item>
+</annotationInfo>

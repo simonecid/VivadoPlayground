@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"hls_main": {
+			"proto_instances": {
+			}
+		}
+	}
+}

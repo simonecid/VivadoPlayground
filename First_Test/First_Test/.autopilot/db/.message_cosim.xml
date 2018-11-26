@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[COSIM 212-47]" key="COSIM_TCL_47_1115" tag="" content="Using XSIM for RTL simulation."/>
+	<Message severity="INFO" prefix="[COSIM 212-14]" key="COSIM_TCL_14_1084" tag="" content="Instrumenting C test bench ..."/>
+	<Message severity="ERROR" prefix="[COSIM 212-44]" key="COSIM_TCL_44_1112" tag="" content="Input file: /users/sb17498/VivadoPlayground/First_Test/First_Test/./sim/autowrap/testbench/TB_Test.cpp_pre.cpp.line.cpp
+Output file: /users/sb17498/VivadoPlayground/First_Test/First_Test/sim/autowrap/testbench/TB_Test.cpp_pre.cpp.tb.cpp.line
+child process exited abnormally"/>
+	<Message severity="INFO" prefix="[COSIM 212-302]" key="COSIM_TCL_302_1177" tag="" content="Starting C TB testing ..."/>
+	<Message severity="ERROR" prefix="[COSIM 212-360]" key="COSIM_TCL_360_1231" tag="" content="Aborting co-simulation: C TB simulation failed."/>
+	<Message severity="ERROR" prefix="[COSIM 212-320]" key="COSIM_TCL_320_1192" tag="" content="C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim."/>
+	<Message severity="INFO" prefix="[COSIM 212-210]" key="COSIM_TCL_210_1173" tag="COSIM" content="Design is translated to an combinational logic. II and Latency will be marked as all 0."/>
+	<Message severity="INFO" prefix="[HLS 200-112]" key="HLS_112_964" tag="" content="Total elapsed time: 987.91 seconds; peak allocated memory: 66.433 MB."/>
+	<Message severity="INFO" prefix="[Common 17-206]" key="Common 17-206" tag="" content="Exiting vivado_hls at Thu Oct 18 13:52:53 2018..."/>
+</Messages>
