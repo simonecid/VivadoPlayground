@@ -64,6 +64,11 @@ Second step is running ```cosim_design```, this command:
  4) The output of the RTL simulation is taken, reconverted to C data and the execution of the C code is resumed.
  5) If the main return 0, the test is considered passed, otherwise failed.
  
+### Exporting into an IP core.
+
+The command ```export_design -format ip_catalog```.
+```-format ip_catalog``` is not mandatory, as ```ip_catalog``` is the default option.\
+The final file will be located in the ```PROJECTNAME/SOLUTIONNAME/impl/ip/``` path.
 
 ## Other stuff
 
