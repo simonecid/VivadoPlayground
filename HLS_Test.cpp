@@ -1,10 +1,20 @@
 #include "HLS_Test.h"
 
-char hls_main(char v1, char v2, char v3) {
 #ifndef __SYNTHESIS__
-  return v1 + v2 * v3;
+#include <iostream>
 #endif
-#ifdef __SYNTHESIS__
-  return v1 + v2 * v3 + 1;
-#endif 
+
+void hls_main(
+              unsigned int inVector1[ARRAY_SIZE],
+              unsigned int inVector2[ARRAY_SIZE], 
+              unsigned int outVector[ARRAY_SIZE]
+             )
+{
+  #ifndef __SYNTHESIS__
+  std::cout << "Summin' up stuff!" << std::endl;
+  #endif
+  sumLoop: for (unsigned int x = 0 ; x < ARRAY_SIZE ; x++)
+  {
+    outVector[x] = inVector1[x] + inVector2[x];
+  }
 }
