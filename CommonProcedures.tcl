@@ -34,8 +34,6 @@ proc setup_environment {projectName solutionName} {
 }
 
 proc synthetise {projectName solutionName} { 
-  open_project $projectName
-  open_solution $solutionName
   csynth_design
 }
 
