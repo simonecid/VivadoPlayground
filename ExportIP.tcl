@@ -12,9 +12,9 @@
 # Defines the mode that will be run in the script
 set mode synth
 # Sets the project name we will work on
-set project_name First_Test
+set project_name HLS_Delay
 # Sets the solution name we will work on
-set solution_name First_Test
+set solution_name KU115
 # Sets the HLS files we want to synthetise 
 set hls_files [list HLS_Test.cpp]
 # Sets the test bench files
@@ -26,7 +26,7 @@ set part {xcku115-flvd1517-2-i}
 # 40MHz = 25 ns -> set clock 40MHz
 set clock 240MHz
 # Sets the top-level function name that is going to be starting point for synthetisation
-set top_function hls_null_algo
+set top_function hls_delay
 
 # Collection of utility procedures
 source CommonProcedures.tcl
@@ -35,4 +35,4 @@ initialise_project $project_name $hls_files $tb_files $top_function
 initialise_solution $project_name $solution_name $part $clock
 synthetise $project_name $solution_name
 
-export_design -format ip_catalog -vendor "cern-cms" -version 1.0 -description null
+export_design -format ip_catalog -vendor "cern-cms" -version 1.0 -description delay

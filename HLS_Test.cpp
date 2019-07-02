@@ -4,7 +4,7 @@
 #include <iostream>
 #endif
 
-void hls_null_algo(
+void hls_delay(
               const unsigned char inData[N_INPUTS],
               unsigned char outData[N_INPUTS]
              )
