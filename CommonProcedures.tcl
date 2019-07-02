@@ -34,6 +34,7 @@ proc setup_environment {projectName solutionName} {
 }
 
 proc synthetise {projectName solutionName} { 
+  config_rtl -reset none
   csynth_design
 }
 
