@@ -36,7 +36,7 @@ initialise_project $project_name $hls_files $tb_files $top_function
 initialise_solution $project_name $solution_name $part $clock
 
 #removing reset
-config_rtl -reset none
+# config_rtl -reset none
 
 synthetise $project_name $solution_name
 
