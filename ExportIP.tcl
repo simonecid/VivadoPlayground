@@ -28,6 +28,9 @@ set clock 240MHz
 # Sets the top-level function name that is going to be starting point for synthetisation
 set top_function hls_delay
 
+#removing reset
+config_rtl -reset none
+
 # Collection of utility procedures
 source CommonProcedures.tcl
 
