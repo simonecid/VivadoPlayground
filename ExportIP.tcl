@@ -28,14 +28,16 @@ set clock 240MHz
 # Sets the top-level function name that is going to be starting point for synthetisation
 set top_function hls_delay
 
-#removing reset
-config_rtl -reset none
 
 # Collection of utility procedures
 source CommonProcedures.tcl
 
 initialise_project $project_name $hls_files $tb_files $top_function
 initialise_solution $project_name $solution_name $part $clock
+
+#removing reset
+config_rtl -reset none
+
 synthetise $project_name $solution_name
 
 export_design -format ip_catalog -vendor "cern-cms" -version 1.0 -description delay
