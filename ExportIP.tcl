@@ -29,7 +29,7 @@ set clock 240MHz
 set top_function hls_delay
 
 #removing reset
-config_rtl -reset none
+# config_rtl -reset none
 
 # Collection of utility procedures
 source CommonProcedures.tcl

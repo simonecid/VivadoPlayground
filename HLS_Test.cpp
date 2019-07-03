@@ -14,7 +14,7 @@ void hls_delay(
   #pragma HLS array_partition variable=outData dim=0 complete
   #pragma HLS interface ap_none port=inData
   #pragma HLS interface ap_none port=outData
-  #pragma HLS interface ap_ctrl_none port=return
+  // #pragma HLS interface ap_ctrl_none port=return
 
   #pragma HLS latency min=5 max=5
 
