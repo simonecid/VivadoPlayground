@@ -1,12 +1,14 @@
 #include "HLS_Test.h"
 
+#include <ap_int.h>
+
 #ifndef __SYNTHESIS__
 #include <iostream>
 #endif
 
 void hls_delay(
-              const unsigned char inData[N_INPUTS],
-              unsigned char outData[N_INPUTS]
+              const ap_uint<64> inData[N_INPUTS],
+              ap_uint<64> outData[N_INPUTS]
              )
 {
   #pragma HLS pipeline 
@@ -14,9 +16,9 @@ void hls_delay(
   #pragma HLS array_partition variable=outData dim=0 complete
   #pragma HLS interface ap_none port=inData
   #pragma HLS interface ap_none port=outData
-  // #pragma HLS interface ap_ctrl_none port=return
+  #pragma HLS interface ap_ctrl_none port=return
 
-  #pragma HLS latency min=5 max=5
+  // #pragma HLS latency min=1 max=1
 
   copyData: for (unsigned int idx = 0 ; idx < N_INPUTS ; idx++)
   {
